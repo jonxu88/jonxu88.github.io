@@ -1,0 +1,41 @@
+body {
+  font-family: 'Consolas';
+  color: black;
+  margin: 10px;
+  background: white;
+}
+
+section {
+  width: 80%;
+  padding-left: 50px
+}
+
+img {
+float: right;
+max-width: 100%;
+height: auto;
+margin-top: -50px;
+margin-left:100px;
+margin-bottom:20px;
+}
+
+.big-title{
+  color: green;
+  padding-left: 50px;
+}
+
+.main-picture{
+  padding-left: 50px;
+}
+
+.section-title {
+  color: #2ddf5c;
+}
+
+
+.main-header {
+  background: orange;
+  width: 100%;
+  padding: 10px 30px;
+  padding-left: 50px;
+}
