@@ -35,18 +35,31 @@ Website under construction. Stay tuned.
 </script>
 
 <br><br>
-Click below to increase the counter by 1.
+Click the button below to get the next prime number.
 <script>
-  var counter = 0;
-  function incrementCounter() {
-    counter++;
-    document.getElementById("counterDisplay").textContent = counter;
+  var currentPrime = 2;
+
+  function isPrime(num) {
+    for (var i = 2; i < num; i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function getNextPrime() {
+    currentPrime++;
+    while (!isPrime(currentPrime)) {
+      currentPrime++;
+    }
+    document.getElementById("primeDisplay").textContent = currentPrime;
   }
 </script>
 <br>
 <br>
-<button onclick="incrementCounter()">Increment</button>
-<p>Count: <span id="counterDisplay">0</span></p>
+<button onclick="getNextPrime()">Next</button>
+<p>Current Prime: <span id="primeDisplay">2</span></p>
 
 
 <br><br><br>
