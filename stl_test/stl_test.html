@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- This is a comment, blah blah -->
+<head>
+<meta charset='UTF-8'>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>STL test</title>
+<link rel="stylesheet" href="mainsheet.css">
+</head>
+<body>
+
+<header class="main-header"> &nbsp
+</header>
+
+<main>
+<br>
+<h1 class="big-title">STL test</h1>
+<section>
+<br>
+<div id="stl_cont" style="width:500px;height:500px;margin:0 auto;"></div>
+<script src="stl_viewer.min.js"></script>
+<div id="stl_cont"></div>
+<script>
+	var stl_viewer=new StlViewer(document.getElementById("stl_cont"), { models: [ {id:0, filename:"sample_okado.stl"} ] });
+</script>
+
+<br>
+
+</section>
+
+
+</main>
+</body>
+
+</html>
