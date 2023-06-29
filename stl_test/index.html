@@ -16,17 +16,20 @@
 <br>
 <h1 class="big-title">STL test</h1>
 <section>
-<br>
-<p>Drag and drop a .stl file to view it.
-  <div id="stl_cont" style="width:500px;height:500px;margin:10px;border:1px solid black;"></div>
-  
-  <script src="stl_viewer.min.js"></script>
+<p>Select a .stl file to view it.
+<br><br>
+<input type="file" onchange='stl_viewer.add_model({local_file:this.files[0]});' accept="*.*">
+
+<div id="stl_cont" style="width:500px;height:500px;margin:10px;border:1px solid black;"></div>
+        
+<script src="stl_viewer.min.js"></script>
     
-  <script>
+<script>
     var stl_viewer=new StlViewer ( document.getElementById("stl_cont") );
-  </script>
-  
-  <!-- input type="file" onchange='stl_viewer.add_model({local_file:this.files[0]});' accept="*.*" -->
+</script>
+
+
+
 
 <br>
 
