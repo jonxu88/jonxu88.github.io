@@ -5,7 +5,7 @@
 <meta charset='UTF-8'>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>STL test</title>
-<link rel="stylesheet" href="mainsheet.css">
+<link rel="stylesheet" href="../mainsheet.css">
 </head>
 <body>
 
@@ -16,9 +16,13 @@
 <br>
 <h1 class="big-title">STL test</h1>
 <section>
-<p>Select a .stl file to view it.
+<p>Select a .stl file to view it.</p>
 <br><br>
-<input type="file" onchange='stl_viewer.add_model({local_file:this.files[0]});' accept="*.*">
+<input type="file" onchange='stl_viewer.add_model({id:1, local_file:this.files[0]});' accept="*.*">
+<!-- should implement an on/off logic for the below-->
+<!-- <button onclick='stl_viewer.set_auto_rotate(true);'>Auto-rotate</button> -->
+
+<button onclick='stl_viewer.remove_model(1);'>Reload</button>
 
 <div id="stl_cont" style="width:500px;height:500px;margin:10px;border:1px solid black;"></div>
         
