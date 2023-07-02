@@ -19,10 +19,10 @@
 <p>Select a .stl file to view it.</p>
 <br><br>
 <input type="file" onchange='stl_viewer.add_model({id:1, local_file:this.files[0]});' accept="*.*">
-<!-- should implement an on/off logic for the below-->
-<!-- <button onclick='stl_viewer.set_auto_rotate(true);'>Auto-rotate</button> -->
 
 <button onclick='stl_viewer.remove_model(1);'>Reload</button>
+
+<p><button onclick='autoRotateButtonLogic()'>Auto-rotate</button></p>
 
 <div id="stl_cont" style="width:500px;height:500px;margin:10px;border:1px solid black;"></div>
         
@@ -30,6 +30,12 @@
     
 <script>
     var stl_viewer=new StlViewer ( document.getElementById("stl_cont") );
+
+    autoRotateOn = false;
+    function autoRotateButtonLogic() {
+        autoRotateOn = !autoRotateOn;
+        stl_viewer.set_auto_rotate(autoRotateOn);
+    }
 </script>
 
 
