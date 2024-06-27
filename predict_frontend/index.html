@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>ML Model Prediction</h2>
+
+<form id="predictionForm">
+    <div id="inputs"></div>
+    <button type="submit">Predict</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+    // const inferenceEndpoint = 'http://localhost:8000/predict/';
+    const inferenceEndpoint = 'https://hidden-meadow-42925-4aacb1ad4965.herokuapp.com/predict/';
+    // Create 10 input fields
+    const inputsDiv = document.getElementById('inputs');
+    for (let i = 0; i <= 10; i++) {
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.step = 'any';
+            input.name = `x${i}`;
+            input.placeholder = `x${i}`;
+            inputsDiv.appendChild(input);
+            inputsDiv.appendChild(document.createElement('br'));
+        }
+
+    document.getElementById('predictionForm').onsubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData.entries());
+
+        // Convert all values to floats
+        for (let key in data) {
+            data[key] = parseFloat(data[key]);
+        }
+        console.log(data)
+        const response = await fetch(inferenceEndpoint, {
+            method: 'POST',
+            headers: {
+                        'accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+            body: JSON.stringify(data)
+        });
+        const result = await response.json();
+        document.getElementById('result').textContent = `Prediction: ${result}`;
+    };
+</script>
+</body>
+</html>
