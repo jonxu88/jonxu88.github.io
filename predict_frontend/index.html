@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h2>ML Model Prediction</h2>
+<h2>Wine Quality Prediction Model</h2>
+
+This is a first pass at productionizing a machine learning model
+trained on the
+<a href="https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009">red wine dataset.</a>
+<br>
+Given the values below, predict whether the wine will be good or bad.
+<br>
+Here, good means score >= 7, bad otherwise.
+<br>
+The model was trained on a RandomForestClassifier using scikit-learn.
+<br>
+The API was created using FastAPI and deployed in Heroku.
+<br>
+Accuracy was 0.94 and f1-score was 0.93.
+<br><br>
 
 <form id="predictionForm">
     <div id="inputs"></div>
@@ -13,6 +28,22 @@
 <script>
     // const inferenceEndpoint = 'http://localhost:8000/predict/';
     const inferenceEndpoint = 'https://hidden-meadow-42925-4aacb1ad4965.herokuapp.com/predict/';
+
+    // columns
+    const columnDict = {
+        'x0': 'fixed acidity',
+        'x1': 'volatile acidity',
+        'x2': 'citric acid (0 to 1)',
+        'x3': 'residual sugar',
+        'x4': 'chlorides (0 to 1)',
+        'x5': 'free sulfur dioxide',
+        'x6': 'total sulfur dioxide',
+        'x7': 'water density (0 to 1)',
+        'x8': 'pH',
+        'x9': 'sulphates',
+        'x10': 'alcohol % (0 to 100)'
+    };
+
     // Create 10 input fields
     const inputsDiv = document.getElementById('inputs');
     for (let i = 0; i <= 10; i++) {
@@ -20,7 +51,7 @@
             input.type = 'number';
             input.step = 'any';
             input.name = `x${i}`;
-            input.placeholder = `x${i}`;
+            input.placeholder = columnDict[`x${i}`];
             inputsDiv.appendChild(input);
             inputsDiv.appendChild(document.createElement('br'));
         }
@@ -44,7 +75,15 @@
             body: JSON.stringify(data)
         });
         const result = await response.json();
-        document.getElementById('result').textContent = `Prediction: ${result}`;
+        var rendered_result = 'Empty result...';
+        if (result == 1) {
+            rendered_result = 'Good wine :)';
+        } else if (result == 0) {
+            rendered_result = 'Bad wine :(';
+        } else {
+            rendered_result = `Something went wrong, the response returned was ${result}`;
+        }
+        document.getElementById('result').textContent = `Prediction: ${rendered_result}`;
     };
 </script>
 </body>
