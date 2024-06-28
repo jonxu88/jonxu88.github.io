@@ -17,10 +17,24 @@
 <h1 class="big-title">Jon Xu</h1>
 <section>
 <br>
-Website under construction. Stay tuned.
+I am a machine learning engineer based in Sendai, Japan. 
+<br>Please contact me via LinkedIn or email. 
+<br>CV available upon request.
 <br>
 
 <br><b>E-mail:</b> jo#nxu8#8@gm#ail.com  (remove the #'s)
+<br>
+<a href="https://www.linkedin.com/in/jon-xu-248059174/">LinkedIn</a>
+<br><br><br>
+<a href="/stl_test/index.html">STL test</a> <br>
+The "STL test" page is made in collaboration with Kohei Ookado of Tohoku Gakuin University in order to assess the effectiveness of ICT based teaching compared to traditional teaching methods in spatial reasoning amongst middle school students.
+<br><br><br>
+<a href="/predict_frontend/index.html">Wine quality prediction model frontend</a><br>
+In order to learn how to deploy a machine learning model trained on tabular data, I trained a simple RandomForestClassifier model on the red wine dataset and deployed the model with a minimal frontend.
+<br><br><br>
+<a href="/old_webpage/index.html">Old website</a>, from my days as an academic.
+<br><br><br>
+<!-- <a href="/js_test/index.html">js test</a> -->
 
 <p id="last-updated"></p>
 
@@ -36,46 +50,8 @@ Website under construction. Stay tuned.
   document.getElementById("last-updated").textContent = "Last Updated: " + formattedDate;
 </script>
 
-<br><br>
-Click the button below to get the next prime number.
-<script>
-  var currentPrime = 2;
-
-  function isPrime(num) {
-    for (var i = 2; i < num; i++) {
-      if (num % i === 0) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  function getNextPrime() {
-    currentPrime++;
-    while (!isPrime(currentPrime)) {
-      currentPrime++;
-    }
-    document.getElementById("primeDisplay").textContent = currentPrime;
-  }
-</script>
-<br>
-<br>
-<button onclick="getNextPrime()">Next</button>
-<p>Current Prime: <span id="primeDisplay">2</span></p>
 
 
-<br><br><br>
-<a href="https://www.linkedin.com/in/jon-xu-248059174/">My LinkedIn</a>
-<br><br><br>
-<a href="/old_webpage/index.html">Old website</a>
-<br><br><br>
-<a href="/stl_test/index.html">STL test</a>
-<br><br><br>
-<a href="/three_js_test/index.html">three.js test</a>
-<br><br><br>
-<a href="/predict_frontend/index.html">Wine quality prediction model frontend</a>
-<br><br><br>
-<!-- <a href="/js_test/index.html">js test</a> -->
 </section>
 
 
