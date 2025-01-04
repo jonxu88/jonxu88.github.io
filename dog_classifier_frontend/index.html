@@ -39,8 +39,7 @@
                     }
                 });
                 const result = await response.json();
-                const parsedResult = JSON.parse(result)
-                document.getElementById('result').textContent = "You submitted a picture of a/an " + parsedResult.prediction +"!";
+                document.getElementById('result').textContent = JSON.stringify(result);
             };
             reader.readAsDataURL(file);
         });
